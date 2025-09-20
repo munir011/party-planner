@@ -11,7 +11,7 @@ import { formatPrice } from '../lib/pricing';
 
 export default function Catalog() {
   const items = useInventoryStore((state) => state.items);
-  const categories = useInventoryStore((state) => state.getCategories());
+  const categories = useInventoryStore((state) => state.categories);
   
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
