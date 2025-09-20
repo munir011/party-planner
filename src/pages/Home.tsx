@@ -172,6 +172,136 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Don't just take our word for it - hear from our satisfied customers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="shadow-card">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  "Premier Party Rentals made our wedding absolutely perfect! The equipment was pristine and the service was exceptional."
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center text-white font-semibold">
+                    S
+                  </div>
+                  <div>
+                    <div className="font-semibold">Sarah Johnson</div>
+                    <div className="text-sm text-muted-foreground">Wedding</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-card">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  "The bounce house was a huge hit at our son's birthday party. Easy booking and on-time delivery!"
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center text-white font-semibold">
+                    M
+                  </div>
+                  <div>
+                    <div className="font-semibold">Mike Chen</div>
+                    <div className="text-sm text-muted-foreground">Birthday Party</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-card">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  "Professional service and competitive pricing. They helped make our corporate event a success!"
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center text-white font-semibold">
+                    A
+                  </div>
+                  <div>
+                    <div className="font-semibold">Amanda Rodriguez</div>
+                    <div className="text-sm text-muted-foreground">Corporate Event</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Get answers to common questions about our rental services.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="shadow-card">
+              <CardContent className="p-6">
+                <h3 className="font-semibold mb-2">How far in advance should I book?</h3>
+                <p className="text-sm text-muted-foreground">
+                  We recommend booking 2-4 weeks in advance for popular items, especially during peak season.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-card">
+              <CardContent className="p-6">
+                <h3 className="font-semibold mb-2">Do you deliver and set up?</h3>
+                <p className="text-sm text-muted-foreground">
+                  Yes! We offer delivery, setup, and pickup services. Delivery fees vary by location.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-card">
+              <CardContent className="p-6">
+                <h3 className="font-semibold mb-2">What's your cancellation policy?</h3>
+                <p className="text-sm text-muted-foreground">
+                  Free cancellation up to 48 hours before your event date for a full refund.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-card">
+              <CardContent className="p-6">
+                <h3 className="font-semibold mb-2">Do you require a deposit?</h3>
+                <p className="text-sm text-muted-foreground">
+                  Yes, we require a security deposit that's refunded after the items are returned in good condition.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

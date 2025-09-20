@@ -1,9 +1,10 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart, Calendar, Package, Search } from 'lucide-react';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { useCartStore } from '../stores/cartStore';
+import { SearchDialog } from './SearchDialog';
 
 interface LayoutProps {
   children: ReactNode;
@@ -13,6 +14,7 @@ export function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const cartItems = useCartStore((state) => state.items);
   const cartCount = cartItems.reduce((total, item) => total + item.qty, 0);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -59,7 +61,7 @@ export function Layout({ children }: LayoutProps) {
 
           <div className="flex flex-1 items-center justify-end space-x-4">
             <div className="flex items-center space-x-2">
-              <Button variant="outline" size="icon">
+              <Button variant="outline" size="icon" onClick={() => setSearchOpen(true)}>
                 <Search className="h-4 w-4" />
               </Button>
               <Link to="/cart">
@@ -78,6 +80,8 @@ export function Layout({ children }: LayoutProps) {
             </div>
           </div>
         </div>
+
+        <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
       </header>
 
       {/* Main Content */}

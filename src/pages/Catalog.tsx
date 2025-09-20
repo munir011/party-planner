@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useMemo, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Search, Filter, Star } from 'lucide-react';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
@@ -10,12 +10,19 @@ import { useInventoryStore } from '../stores/inventoryStore';
 import { formatPrice } from '../lib/pricing';
 
 export default function Catalog() {
+  const [searchParams] = useSearchParams();
   const items = useInventoryStore((state) => state.items);
   const categories = useInventoryStore((state) => state.categories);
   
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
+  const [selectedCategory, setSelectedCategory] = useState<string>(searchParams.get('category') || 'all');
   const [sortBy, setSortBy] = useState<string>('name');
+
+  // Update state when URL params change
+  useEffect(() => {
+    setSearchQuery(searchParams.get('search') || '');
+    setSelectedCategory(searchParams.get('category') || 'all');
+  }, [searchParams]);
 
   const filteredAndSortedItems = useMemo(() => {
     let filtered = items;
